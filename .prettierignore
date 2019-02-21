@@ -1,0 +1,7 @@
+# files which are ignored by prettier
+package.json
+config.xml
+Readme.md
+tslint.json
+*.html
+*.scss

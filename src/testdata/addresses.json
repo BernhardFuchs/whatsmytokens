@@ -1,0 +1,8 @@
+{
+  "mainnet:": {
+    "eth1": "0xA6431a2c8420f0c3818c328A444228E221c2aa15",
+    "binance-token": "0xb8c77482e45f1f44de1745f52c74426c631bdd52",
+    "binance1": "0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be",
+    "fresh": "0x59814dc01b5257528afa94f4aa33523e92890e4c"
+  }
+}

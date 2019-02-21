@@ -1,0 +1,43 @@
+.dapp-home {
+  &__container {
+    margin: 5px 3px 2px;
+    background: #f5f5f5;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+    text-align: center;
+  }
+
+  &__intro {
+    font-size: 26px;
+    margin: 5px 0px 3px;
+  }
+
+  &__powered-container {
+    display: flex;
+    flex-flow: column;
+    font-size: 26px;
+    margin: 3px 0px;
+  }
+
+  &__powered {
+    margin: 3px 0px;
+  }
+
+  &__ethplorer {
+    margin: 3px 0px;
+  }
+
+  &__web3 {
+    text-decoration: none;
+    color: black;
+    font-size: 46px;
+    margin: 3px 0px;
+  }
+
+  &__warning {
+    margin-top: 10px;
+    font-size: 26px;
+    background: #f44336;
+  }
+}

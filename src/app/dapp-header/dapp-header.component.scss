@@ -1,0 +1,21 @@
+.home-link {
+  text-decoration: none;
+  text-align: center;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+}
+
+.header-text {
+  margin-left: 5%;
+}
+
+.primary-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+.secondary-toolbar {
+  padding: 100px 0 48px 32px;
+}

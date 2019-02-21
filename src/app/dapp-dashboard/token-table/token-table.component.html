@@ -1,0 +1,55 @@
+<mat-toolbar>
+  <span>Tokens</span>
+  <span class="spacer"></span>
+  <button class="reload-button" mat-icon-button (click)="refresh()">
+      <mat-icon>refresh</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="mat-elevation-z8">
+    
+  <div class="form">
+    <mat-form-field floatPlaceholder="never" color="accent">
+      <input matInput #filter placeholder="Filter items">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="symbol">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Symbol</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.symbol}}</mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="balance">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Balance</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.balance}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="rate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Rate</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.rate}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: getDisplayedColumns();"></mat-row>
+  </mat-table>
+
+  <div class="no-results" [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+    No results
+  </div>
+
+  <mat-paginator #paginator
+      [length]="dataSource.filteredData.length"
+      [pageIndex]="pageIndex"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      [showFirstLastButtons]=true>
+  </mat-paginator>
+</div>

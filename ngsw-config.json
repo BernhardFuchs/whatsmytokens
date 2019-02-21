@@ -1,0 +1,44 @@
+{
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "whatsmytokens",
+      "installMode": "prefetch",
+      "resources": {
+        "files": ["/favicon.ico", "/index.html", "/*.css", "/*.js"]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": ["/assets/**"]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "ethplorer-api",
+      "urls": ["https://api.ethplorer.io/**"],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "timeout": "10s",
+        "maxAge": "1d",
+        "maxSize": 100
+      }
+    },
+    {
+      "name": "infura-api",
+      "urls": [
+        "https://mainnet.infura.io/v3/ca3e735938744c5d8602791353402bc4/**"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "timeout": "10s",
+        "maxAge": "1d",
+        "maxSize": 100
+      }
+    }
+  ]
+}

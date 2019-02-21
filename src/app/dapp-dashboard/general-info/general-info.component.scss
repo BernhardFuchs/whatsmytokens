@@ -1,0 +1,30 @@
+.general-info {
+  height: 32px;
+  display: block;
+  padding-left: 2%;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 32px;
+
+  &__container {
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+
+  &__result-box {
+    display: flex;
+    background: #f5f5f5;
+  }
+  
+  &__label {
+    @extend .general-info;
+    flex-basis: 100px;
+  }
+
+  &__value {
+    @extend .general-info;
+    font-size: 14px;
+    flex-grow: 1;
+  }
+
+}
