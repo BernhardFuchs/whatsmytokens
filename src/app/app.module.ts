@@ -4,7 +4,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GuiModule } from './gui/gui.module';
+import { GuiModule } from './gui.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DappStoreModule } from './dapp-store';
 import { DappHeaderComponent } from './dapp-header/dapp-header.component';

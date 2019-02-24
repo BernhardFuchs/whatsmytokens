@@ -8,7 +8,7 @@ import {
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { GuiModule } from '../gui/gui.module';
+import { GuiModule } from '../gui.module';
 import { SharedModule } from '../shared/shared.module';
 import { DappDashboardComponent } from './dapp-dashboard.component';
 import { TokenTableComponent } from './token-table/token-table.component';
