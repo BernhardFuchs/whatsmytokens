@@ -4,7 +4,6 @@ import { AddressInfoStateModel } from '../dapp-store/address-info.state.model';
 // and asserts the results of JSON.parse at runtime
 export namespace AddressInfoMapper {
     export function toAddressInfoStateModel(json: string): AddressInfoStateModel {
-      console.log('####json: ', json);
       return cast(JSON.parse(json), r('AddressInfoStateModel'));
     }
 

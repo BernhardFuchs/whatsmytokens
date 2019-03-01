@@ -6,12 +6,12 @@ export class AddressInfoFetchAction {
 }
 
 export class BalanceInfoSuccessAction {
-  static readonly type = '[Web3 Api] Address Info Success';
+  static readonly type = '[Balance Service] Address Info Success';
   constructor(public address: string, public balanceWei: string) {}
 }
 
 export class BalanceInfoErrorAction {
-  static readonly type = '[Web3 Api] Address Info Error';
+  static readonly type = '[Balance Service] Address Info Error';
   constructor(public error: any) {}
 }
 

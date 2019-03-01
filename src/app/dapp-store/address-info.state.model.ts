@@ -1,18 +1,3 @@
-// To parse this data:
-//
-//   import { Convert, TokenStateModel } from "./file";
-//
-//   const tokenStateModel = Convert.toTokenStateModel(json);
-//
-// These functions will throw an error if the JSON doesn't
-// match the expected interface, even if the JSON is valid.
-
-/**
- * This is the Address State Model returned from ethplorer API.
- * Balance below 0 return false, that's why the Balance is fetched
- * from Web3 API.
- */
-
 export interface AddressInfoStateModel {
   address: string;
   ETH: Eth;
