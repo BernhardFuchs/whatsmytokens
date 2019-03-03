@@ -12,10 +12,14 @@ export class EthplorerApi {
 
   public fetchAddressInfo(address: string): Observable<any> {
     const options = {
-      params: new HttpParams()
-        .set(EthplorerApi.QUERY_KEY_API_KEY, EthplorerApi.QUERY_VALUE_FREE_KEY)
+      params: new HttpParams().set(
+        EthplorerApi.QUERY_KEY_API_KEY,
+        EthplorerApi.QUERY_VALUE_FREE_KEY
+      )
     };
-    const url: URL = new URL(`${ethplorerApi}${ethplorerPaths.getAddressInfo}/${address}`);
+    const url: URL = new URL(
+      `${ethplorerApi}${ethplorerPaths.getAddressInfo}/${address}`
+    );
     return this.httpClient.get<any>(url.toString(), options);
   }
 }
