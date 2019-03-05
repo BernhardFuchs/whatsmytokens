@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  name: 'PRODUCTION',
+  production: true,
+  apiUrl: 'https://dapp-proto.com'
 };

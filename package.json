@@ -6,6 +6,7 @@
     "start": "ng serve",
     "start:prod": "ng build --prod && http-server ./dist --ssl",
     "build": "ng build",
+    "build:prod": "ng build --prod",
     "docker:prepare": "docker build -t nginx-server -f ./docker/Dockerfile . && docker stop dapp && docker rm dapp && docker run --name dapp -p 32700:443 -d nginx-server:latest ",
     "docker:deploy": "docker cp ./docker/nginx.conf dapp:/etc/nginx/nginx.conf && docker cp ./dist/. dapp:/usr/share/nginx/html && docker cp ~/ssl/. dapp:/etc/nginx/ssl",
     "docker:reload": "docker container exec dapp nginx -s reload"
