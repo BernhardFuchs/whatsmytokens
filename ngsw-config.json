@@ -29,10 +29,8 @@
       }
     },
     {
-      "name": "infura-api",
-      "urls": [
-        "https://mainnet.infura.io/v3/ca3e735938744c5d8602791353402bc4/**"
-      ],
+      "name": "balance-api",
+      "urls": ["https://dapp-proto.com/**"],
       "cacheConfig": {
         "strategy": "freshness",
         "timeout": "10s",

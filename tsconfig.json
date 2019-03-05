@@ -1,12 +1,13 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "paths": {
       "@core/*": ["src/app/core/*"],
-      "@environments/*": ["src/environments/*"]
+      "@app/env": ["src/environments/environment"]
     },
-    "outDir": "./docker/dist/out-tsc",
+    "outDir": "./out-tsc",
     "sourceMap": true,
     "declaration": false,
     "module": "es2015",

@@ -1,17 +1,22 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { BalanceInfoStateModel } from './balance-info.state.model';
-import { AddressInfoFetchAction, BalanceInfoSuccessAction, BalanceInfoErrorAction } from './address-info.actions';
+import { Observable } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
+import {
+  AddressInfoFetchAction,
+  BalanceInfoSuccessAction,
+  BalanceInfoErrorAction
+} from './address-info.actions';
 import { BalanceInfoService } from '../services';
 
 @State<BalanceInfoStateModel>({
   name: 'balanceInfo',
   defaults: {
     address: '',
-    balanceWei: ''
+    balanceEther: ''
   }
 })
 export class BalanceInfoState {
-
   constructor(private balanceInfoService: BalanceInfoService) {}
 
   @Selector()
@@ -21,26 +26,36 @@ export class BalanceInfoState {
 
   @Selector()
   static getBalance(state: BalanceInfoStateModel) {
-    return state.balanceWei;
+    return state.balanceEther;
   }
 
   @Action(AddressInfoFetchAction)
-  async fetchBalanceInfo(ctx: StateContext<BalanceInfoStateModel>, action: AddressInfoFetchAction) {
+  fetchBalanceInfo(
+    ctx: StateContext<BalanceInfoStateModel>,
+    action: AddressInfoFetchAction
+  ): Observable<any> {
     ctx.setState({
       address: '',
-      balanceWei: ''
+      balanceEther: ''
     });
-    await this.balanceInfoService.fetchBalance(action.address).then(
-      (res: string) => ctx.dispatch(new BalanceInfoSuccessAction(action.address, res)),
-      err => ctx.dispatch(new BalanceInfoErrorAction(err))
+    return this.balanceInfoService.fetchBalance(action.address).pipe(
+      tap((res: any) => {
+        ctx.dispatch(new BalanceInfoSuccessAction(action.address, res.balance));
+      }),
+      catchError((err: any) => {
+        throw ctx.dispatch(new BalanceInfoErrorAction(err));
+      })
     );
   }
 
   @Action(BalanceInfoSuccessAction)
-  addBalanceInfoToState(ctx: StateContext<BalanceInfoStateModel>, action: BalanceInfoSuccessAction) {
+  addBalanceInfoToState(
+    ctx: StateContext<BalanceInfoStateModel>,
+    action: BalanceInfoSuccessAction
+  ) {
     ctx.setState({
       address: action.address,
-      balanceWei: action.balanceWei
+      balanceEther: action.balanceEther
     });
   }
 }

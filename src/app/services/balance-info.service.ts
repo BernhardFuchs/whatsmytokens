@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Web3Api } from './web3.api';
+import { BalanceInfoApi } from './balance-info.api';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class BalanceInfoService {
+  constructor(private balanceInfoApi: BalanceInfoApi) {}
 
-  constructor(private web3Api: Web3Api) { }
-
-  public fetchBalance(address: string): Promise<any> {
-    return this.web3Api.fetchBalance(address);
+  public fetchBalance(address: string): Observable<string> {
+    return this.balanceInfoApi.fetchBalance(address);
   }
 }
