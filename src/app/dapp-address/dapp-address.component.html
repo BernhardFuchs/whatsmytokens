@@ -1,7 +1,12 @@
 <div [class]="address_container">
   <mat-form-field [class]="address_formField">
-    <input [formControl]="addressForm" matInput placeholder="Enter your eth-address" required>
+    <input [formControl]="addressForm" matInput [matAutocomplete]="auto" placeholder="Enter your eth-address" required>
     <mat-error *ngIf="addressForm.invalid">{{getErrorMessage()}}</mat-error>
+    <mat-autocomplete #autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let addr of cachedAddr$ | async" [value]="addr.fullAddress">
+        <span>{{ addr.shortAddress }}</span>
+      </mat-option>
+    </mat-autocomplete>
   </mat-form-field>
   <button mat-flat-button color="primary" (click)="this.fetchAddress()">
     Get Info

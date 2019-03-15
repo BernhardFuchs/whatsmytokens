@@ -12,10 +12,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { BalanceInfoState } from './balance-info.state';
 import { AddressInfoState } from './address-info.state';
 import { TokenTableState } from './token-table.state';
+import { CachedAddrState } from './cached-addr.state';
 
 @NgModule({
   imports: [
-    NgxsModule.forRoot([BalanceInfoState, AddressInfoState, TokenTableState]),
+    NgxsModule.forRoot([
+      BalanceInfoState,
+      AddressInfoState,
+      TokenTableState,
+      CachedAddrState
+    ]),
     NgxsReduxDevtoolsPluginModule.forRoot({
       disabled: environment.production
     }),

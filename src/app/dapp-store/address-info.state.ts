@@ -32,6 +32,8 @@ export class AddressInfoState {
     ctx: StateContext<AddressInfoStateModel>,
     action: AddressInfoFetchAction
   ): Observable<any> {
+    console.log('### AddressInfo action', action);
+    console.log('### AddressInfo', action.address);
     ctx.setState({ ...defaultState });
     return this.addressInfoService.fetchAddressInfo(action.address).pipe(
       tap((res: AddressInfoStateModel) =>

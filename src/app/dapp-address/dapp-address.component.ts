@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Store } from '@ngxs/store';
+import { Store, Select } from '@ngxs/store';
 import { Router } from '@angular/router';
 
 import { AddressInfoFetchAction } from '../dapp-store/address-info.actions';
 import * as styles from './dapp-address.styles';
+import { CachedAddrState } from '../dapp-store/cached-addr.state';
+import { Observable } from 'rxjs';
+import { CachedAddrStateModel } from '../dapp-store/cached-addr.state.model';
 
 @Component({
   selector: 'app-dapp-address',
@@ -17,6 +20,10 @@ export class DappAddressComponent implements OnInit {
   constructor(private store$: Store, private router: Router) {}
 
   addressForm = new FormControl('', [Validators.required]);
+
+  @Select(CachedAddrState.getCachedAddr) cachedAddr$: Observable<
+    CachedAddrStateModel
+  >;
 
   ngOnInit() {
     // uncomment for easier test experience
