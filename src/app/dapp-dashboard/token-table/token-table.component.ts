@@ -41,10 +41,6 @@ export class TokenTableComponent implements OnInit {
     this.loadData();
   }
 
-  refresh(): void {
-    this.loadData();
-  }
-
   getDisplayedColumns(): string[] {
     return this.loadedColumns
       .filter(column => !this.isMobile() || column.mobile)
