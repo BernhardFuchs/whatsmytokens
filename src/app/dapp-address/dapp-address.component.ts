@@ -13,20 +13,25 @@ import * as styles from './dapp-address.styles';
 export class DappAddressComponent implements OnInit {
   public address_container: any = styles.address_container;
   public address_formField: any = styles.address_formField;
+  public address_input: any = styles.address_input;
+  public address_clear: any = styles.address_clear;
 
   constructor(private store$: Store, private router: Router) {}
 
   addressForm = new FormControl('', [Validators.required]);
 
   ngOnInit() {
-    // uncomment for easier test experience
-    // this.addressForm.setValue('0xb8c77482e45f1f44de1745f52c74426c631bdd52');
+    this.addressForm.setValue('0xb8c77482e45f1f44de1745f52c74426c631bdd52');
   }
 
   getErrorMessage() {
     return this.addressForm.hasError('required')
       ? 'You must enter a value'
       : '';
+  }
+
+  clearAddress() {
+    this.addressForm.reset();
   }
 
   public fetchAddress() {

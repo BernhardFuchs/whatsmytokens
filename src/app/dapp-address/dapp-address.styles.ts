@@ -1,6 +1,18 @@
 import { style, media } from 'typestyle';
 import { mediaBreakWidth } from '@core/base.styles';
 
+export const address_input = style(
+  {
+    display: 'flex'
+  }
+);
+
+export const address_clear = style(
+  {
+    borderStyle: 'none'
+  }
+);
+
 export const address_container = style(
   {
     display: 'flex',
