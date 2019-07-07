@@ -9,7 +9,16 @@
   </a>
 </mat-toolbar>
 
-<mat-toolbar class="secondary-toolbar" color="accent">
-  Try the app with the prefilled address from Binance<br/>
-  or check with any other Ethereum address
-</mat-toolbar>
+
+<ng-container #mobileViewPort *ngIf="isMobileViewPort; else webViewPort">
+  <mat-toolbar class="secondary-toolbar" color="accent">
+    Try the app with the prefilled<br/>
+  or use with any ETH address
+  </mat-toolbar>
+</ng-container>
+<ng-template #webViewPort>
+  <mat-toolbar class="secondary-toolbar" color="accent">
+    Try the app with the prefilled address from Binance<br/>
+    or check with any other Ethereum address
+  </mat-toolbar>
+</ng-template>
