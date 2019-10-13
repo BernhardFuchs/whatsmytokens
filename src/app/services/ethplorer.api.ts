@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class EthplorerApi {
   private static readonly QUERY_KEY_API_KEY: string = 'apiKey';
-  private static readonly QUERY_VALUE_FREE_KEY: string = 'freekey';
+  private static readonly QUERY_VALUE_API_KEY: string = 'xldoc5346ESIQ94';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -14,7 +14,7 @@ export class EthplorerApi {
     const options = {
       params: new HttpParams().set(
         EthplorerApi.QUERY_KEY_API_KEY,
-        EthplorerApi.QUERY_VALUE_FREE_KEY
+        EthplorerApi.QUERY_VALUE_API_KEY
       )
     };
     const url: URL = new URL(

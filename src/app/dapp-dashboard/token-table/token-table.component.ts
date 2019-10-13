@@ -1,6 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  OnDestroy
+} from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
-import { fromEvent } from 'rxjs';
+import { fromEvent, Subscription } from 'rxjs';
 
 import { TokenTableDataSource } from './token-table.datasource';
 import { DataService } from 'src/app/services/data.service';
@@ -11,7 +17,7 @@ import { MediaService, MediaSize } from 'src/app/shared/media.service';
   templateUrl: './token-table.component.html',
   styleUrls: ['./token-table.component.scss']
 })
-export class TokenTableComponent implements OnInit {
+export class TokenTableComponent implements OnInit, OnDestroy {
   private _currentMedia = '';
   loadedColumns = [
     { def: 'symbol', mobile: true },
@@ -25,12 +31,15 @@ export class TokenTableComponent implements OnInit {
 
   private _dataService!: DataService | null;
   dataSource!: TokenTableDataSource | null;
+  private _mediaSizeSubscription: Subscription;
 
   constructor(private mediaService: MediaService) {
-    this.mediaService.getMediaSize().subscribe((mediaSize: MediaSize) => {
-      this._currentMedia = mediaSize.current;
-      this.getDisplayedColumns();
-    });
+    this._mediaSizeSubscription = this.mediaService
+      .getMediaSize()
+      .subscribe((mediaSize: MediaSize) => {
+        this._currentMedia = mediaSize.current;
+        this.getDisplayedColumns();
+      });
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -39,6 +48,10 @@ export class TokenTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
+  }
+
+  ngOnDestroy(): void {
+    this._mediaSizeSubscription.unsubscribe();
   }
 
   getDisplayedColumns(): string[] {
