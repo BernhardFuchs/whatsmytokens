@@ -5,7 +5,7 @@
 export const environment = {
   name: 'DEVELOPMENT',
   production: false,
-  apiUrl: 'http://localhost:3000'
+  apiUrl: 'http://localhost:5001/whatsmytokens/us-central1/api'
 };
 
 /*
