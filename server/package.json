@@ -8,7 +8,9 @@
     "build": "rm -rf dist/* && tsc",
     "build:prod": "npm run build && cp package* dist/",
     "serve": "node dist/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "Bernhard Fuchs",
   "license": "ISC",
@@ -16,7 +18,8 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
-    "web3": "^1.0.0-beta.46"
+    "web3": "^1.0.0-beta.46",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.4",
@@ -24,5 +27,6 @@
     "@types/lodash": "^4.14.121",
     "@types/node": "^11.9.6",
     "typescript": "~3.1.6"
-  }
+  },
+  "snyk": true
 }
