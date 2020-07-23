@@ -23,7 +23,7 @@
     "@angular/material": "^7.1.0",
     "@angular/platform-browser": "~7.1.0",
     "@angular/platform-browser-dynamic": "~7.1.0",
-    "@angular/pwa": "^0.13.1",
+    "@angular/pwa": "^0.803.29",
     "@angular/router": "~7.1.0",
     "@angular/service-worker": "~7.1.0",
     "@ngxs/devtools-plugin": "^3.3.2",
